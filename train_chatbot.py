@@ -12,8 +12,6 @@ nltk.download("punkt")
 nltk.download("wordnet")
 nltk.download('omw-1.4')
 
-lemmatizer = WordNetLemmatizer()
-
 words = []
 classes = []
 documents = []
@@ -31,7 +29,7 @@ for intent in intents:
         if intent["tag"] not in classes:
             classes.append(intent["tag"])
 
-words = [lemmatizer.lemmatize(word.lower()) for word in words if word not in ignore_words]
+words = [WordNetLemmatizer.lemmatize(word.lower()) for word in words if word not in ignore_words]
 words = sorted(list(set(words)))
 
 classes = sorted(list(set(classes)))
@@ -50,7 +48,7 @@ for doc in documents:
     bag = []
 
     pattern_words = doc[0]
-    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
+    pattern_words = [WordNetLemmatizer.lemmatize(word.lower()) for word in pattern_words]
 
     for word in words:
         bag.append(1) if word in pattern_words else bag.append(0)
