@@ -4,6 +4,8 @@ from nltk.stem import WordNetLemmatizer
 import numpy as np
 import pickle
 
+lemmatizer = WordNetLemmatizer()
+
 model = load_model("chatbot_model.h5")
 
 words = pickle.load(open("words.pkl", "rb"))
@@ -14,7 +16,7 @@ ERROR_THRESHOLD = 0.25
 
 def clean_up_sentences(sentence):
     sentence_words = nltk.word_tokenize(sentence)
-    sentence_words = [WordNetLemmatizer.lemmatize(word.lower()) for word in sentence_words]
+    sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
     return sentence_words
 
 
