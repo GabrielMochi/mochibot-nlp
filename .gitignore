@@ -4,3 +4,6 @@ resources/completed-notebooks/.ipynb_checkpoints/
 .ipynb_checkpoints/
 *.h5
 *.pkl
+*.env
+*.env.*
+!.env.sample
