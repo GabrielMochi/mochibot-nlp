@@ -25,7 +25,7 @@ def bow(sentence, show_details=True):
     bag = [0] * len(words)
 
     for sentence_word in sentence_words:
-        for i, word in words:
+        for i, word in enumerate(words):
             if word == sentence_word:
                 bag[i] = 1
 
